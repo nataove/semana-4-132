@@ -1,0 +1,62 @@
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* 
+==================
+    VARIABLES
+===================
+*/
+
+:root {
+    /*   --main-blue:  #1A5276; */
+    --main-color: #458787;
+    --main-color2: #244646;
+    --main-color3: #2a5353;
+    --main-color4: #316060;
+    --main-color5: #3e7a7a;
+    --main-color6: #458787;
+    --main-color7:#4c9494; 
+    --main-color8: #52a1a1;
+
+    --main-color-oscuro: #091212;
+    --main-color-oscuro2: #101f1f;
+    --main-color-oscuro3: #172c2c;
+    --main-color-oscuro4: #1d3939;
+    --main-color-oscuro5: #1d3939;
+    --main-color-oscuro6: #1d3939;
+
+    
+
+    --main-black: #030505;
+      /* --main-white:  #FFFAFA; */
+    /*   --main-white: #fffafa; */
+      --main-white:#fefefa;
+      --main-white2: #ddeeee;
+      --main-white3: #eaf4f4;
+      --main-white4: #f7fbfb;
+
+      --main-grey: #646868;
+      --main-grey2: #c7c9c9;
+      --main-grey3: #e5e6e6;
+
+
+      --transition: all 0.3s linear;
+      --letter-spacing: .1rem;
+      --light-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  }
+
+a {
+    text-decoration: none;
+}
+
+img:not(.menu__logo){
+    width: 100%;
+}
+
+ul{
+    list-style: none;
+}
