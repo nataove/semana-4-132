@@ -60,3 +60,29 @@ img:not(.menu__logo){
 ul{
     list-style: none;
 }
+
+.section-title {
+    margin-bottom: 5.5rem;
+    font-size: 1.7rem;
+    width: 20rem;
+    text-align: center;
+    margin-right:  auto;
+    margin-left: auto;
+}
+
+
+.underline {
+  /*   border: 3px solid var(--main-color5); */
+    height: .4rem;
+    background: var(--main-color5);
+    width: 7rem;
+    display: block;
+    margin: 0 auto;
+    transition: var(--transition);
+}
+
+.section-title:hover .underline {
+    width: 20rem;
+}
+
+

@@ -15,13 +15,13 @@
             <a href="">Home</a>
           </li>
           <li>
-            <a href="">section 2</a>
+            <a href="#conocenos">Conocenos</a>
           </li>
           <li>
-            <a href="">section 3</a>
+            <a href="#servicios">servicios</a>
           </li>
           <li>
-            <a href="">section 4</a>
+            <a href="#testimonios">Testimonios</a>
           </li>
            <li class="menu__login">
              <router-link to="login">
