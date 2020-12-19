@@ -1,8 +1,14 @@
 const db = require('../models')
+const Categoria = require('../models').Categoria;
 
 exports.list = async (req, res, next) => {
     try {
-        const lista = await db.Articulo.findAll();
+        const lista = await db.Articulo.findAll({
+            include: [{
+                model: Categoria,
+                as: 'categoria'
+            }],
+        });
         res.status(200).json(lista)
     } catch (error) {
         res.status(500).send({

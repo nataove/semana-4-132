@@ -6,4 +6,10 @@ const router = routerx();
 
 router.post('/login',  usuarioController.login);
 
+router.get('/list',  usuarioController.list);
+router.post('/add', usuarioController.add);
+router.put('/update', usuarioController.update);
+router.put('/activate', usuarioController.activate);
+router.put('/deactivate', usuarioController.deactivate);
+
 module.exports = router;
