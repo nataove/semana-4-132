@@ -40,6 +40,8 @@
     </v-card-actions>
 
   </v-card>
+
+
           <v-card
     class="mx-auto"
   >
@@ -59,8 +61,9 @@
       <v-btn
         color="orange lighten-2"
         text
+        to="servicio/2"
       >
-        Explore
+        Explorar
       </v-btn>
 
       <v-spacer></v-spacer>
@@ -112,7 +115,7 @@
     name: 'TheServices',
     props:{},
     data: () => ({
-
+      
     }),
   }
 </script>
