@@ -27,7 +27,7 @@
 
 <script>
 
-  /* import axios from 'axios'; */
+   import axios from 'axios'; 
 
 export default {
   name: 'TheLogin',
@@ -41,29 +41,31 @@ export default {
     }
   },
   methods: {
-    async loginUser() {
-      this.$router.push('/admin');
-  /*     axios
-      .post('http://localhost:3000/api/auth/signin', 
-      { email: this.login.user,
-        password: this.login.password 
-      })
-      .then(response => {
-        console.log(response.data);
-        let token = response.data.accessToken;
-        localStorage.setItem('jwt', token);
-        this.$router.push('/home');
-      })
-      .catch(err => {
-        console.log(err);
-        this.loginSucceded = false;
-        setTimeout(() => {
-          this.loginSucceded = true;
-        }, 5000);
-      }); */
-    }
-  }
-}
+    loginUser() {
+      axios
+        .post("http://localhost:3000/api/usuario/login", {
+          email: this.login.user,
+          password: this.login.password,
+        })
+        .then((response) => {
+          let token = response.data.tokenReturn;
+          this.$store.dispatch('guardarToken', token)
+          console.log(response);
+          this.$router.push({name: 'Admin'});
+        })
+        .catch((err) => {
+          console.log(err);
+          this.loginSucceded = false;
+          setTimeout(() => {
+            this.loginSucceded = true;
+          }, 5000);
+        });
+    },
+  },
+    beforeCreate(){
+        this.$store.dispatch('autoLogin')?this.$router.push({name: 'Admin'}):false;
+    },
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
