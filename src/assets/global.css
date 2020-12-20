@@ -64,7 +64,8 @@ ul{
 .section-title {
     margin-bottom: 5.5rem;
     font-size: 1.7rem;
-    width: 20rem;
+    background-color: white;
+  /*   width: 20rem; */
     text-align: center;
     margin-right:  auto;
     margin-left: auto;

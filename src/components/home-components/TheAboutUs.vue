@@ -2,11 +2,6 @@
 
     <div class="about-us">
 
-        <div class="section-title">
-            <h2>CONOCENOS</h2>
-            <div class="underline"></div>
-        </div>
-
         <div class="section-center">
 
             <div class="about-us__info">
@@ -86,7 +81,7 @@
 <style scoped>
 
 .about-us {
-    margin-top: 7rem;
+    margin-top: 1rem;
 }
 
 
@@ -145,7 +140,7 @@ border-bottom: none;
 }
 
 .about-us__reason:nth-child(2n) {
-background-color: var(--main-white2);
+background-color: var(--main-white);
 border-top-left-radius: 2rem;
 border-bottom-left-radius: 2rem;
 margin-right: 2rem;

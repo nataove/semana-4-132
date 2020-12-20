@@ -15,13 +15,13 @@
             <a href="">Home</a>
           </li>
           <li>
-            <a href="#conocenos">Conocenos</a>
+            <a v-if="completo" href="#conocenos">Conocenos</a>
           </li>
           <li>
-            <a href="#servicios">servicios</a>
+            <a v-if="completo" href="#servicios">servicios</a>
           </li>
           <li>
-            <a href="#testimonios">Testimonios</a>
+            <a v-if="completo" href="#testimonios">Testimonios</a>
           </li>
            <li class="menu__login">
              <router-link to="login">
@@ -42,7 +42,7 @@
           <li>
             <a href="">Home</a>
           </li>
-          <li>
+          <li v-if="completo">
             <a href="">section 2</a>
           </li>
           <li>
@@ -63,7 +63,7 @@
 <script>
 export default {
   name: "TheHeader",
-  props: {},
+  props: ['completo'],
   methods: {
       onResize(){
   if (window.pageYOffset > 80) {

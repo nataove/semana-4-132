@@ -1,6 +1,6 @@
 <template>
 
-    <section class="services">
+    <section id="servicios" class="services">
 
   <div class="section-title">
             <h2>SERVICIOS</h2>
@@ -29,8 +29,9 @@
       <v-btn
         color="orange lighten-2"
         text
+        to="servicio/1"
       >
-        Explore
+        Explora
       </v-btn>
 
       <v-spacer></v-spacer>

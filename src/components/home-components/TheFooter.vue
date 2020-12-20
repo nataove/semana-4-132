@@ -1,84 +1,94 @@
 <template>
-  <footer class="footer">
-    <div class="footer__info">
+  <v-footer
+    dark
+    color="#101f1f"
+    padless
 
-      <div class="footer__item">
-        <h3>Contactenos</h3>
-        <ul>
-          <li>safsafasdfsdfasdf</li>
-          <li>gdsadfgsagsd</li>
-          <li>wrewrewrerere</li>
-        </ul>
-      </div>
+  >
+    <v-card
+      flat
+      tile
+      class="indigo lighten-1 white--text text-center"
+    >
+      <v-card-text>
+        <v-btn
+          v-for="icon in icons"
+          :key="icon"
+          class="mx-4 white--text"
+          icon
+          href="https://github.com/nataove/semana-4-132.git"
+          target="_blank"
+        >
+          <v-icon size="24px">
+            {{ icon }}
+          </v-icon>
+        </v-btn>
+      </v-card-text>
 
-      <div class="footer__item">
-        <h3>Ciudades</h3>
-        <ul>
-          <li>Cali</li>
-          <li>Bogotá</li>
-          <li>Cartagena</li>
-          <li>Medellín</li>
-        </ul>
-      </div>
-      <div class="footer__item">
-        <h3>GitHub Repository</h3>
-        https://github.com/nataove/semana-4-132.git
-      </div>
+      <v-card-text class="white--text pt-0 footer__text">
 
-    </div>
-  </footer>
+        <div class="">
+          <h3>Contacto e-mail:</h3>
+          <p>prueba@gmail.com</p>
+          <p>prueba2@hotmail.com</p>
+        </div>
+
+        <div class="">
+          <h3>Ciudades:</h3>
+          <p>Cartagena</p>
+          <p>Bogotá</p>
+           <p>Cali</p>
+          <p>Medellín</p>
+        </div>
+
+        <div class="">
+          <h3>Teléfonos:</h3>
+          <p>3105846205</p>
+          <p>+57 65 985 652 12</p>
+        </div>
+      </v-card-text>
+
+      <v-divider></v-divider>
+
+      <v-card-text class="white--text">
+        {{ new Date().getFullYear() }} — <strong>Grupo 132</strong>
+      </v-card-text>
+    </v-card>
+  </v-footer>
 </template>
 
 <script>
-export default {
-  name: "TheAboutUs",
-  props: {},
-  data: () => ({
-    model: 0,
-    colors: [
-      "indigo darken-3",
-      "warning",
-      "pink darken-3",
-      "red lighten-1",
-      "deep-purple",
-    ],
-  }),
-};
+  export default {
+    data: () => ({
+      icons: [
+        'mdi-github',
+      ],
+    }),
+  }
 </script>
 
+
 <style scoped>
-.footer {
-  margin-top: 13rem;
-  height: 250px;
-  width: 100vw;
-  background-color: var(--main-color-oscuro6);
-  color: white;
-  padding: 2rem 0;
-}
 
-.footer__info{
-  width: 90%;
-  margin: 0 auto;
-   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  justify-items: center
-  ;
-}
 
-.footer__item{
-  display: flex;
-  flex-direction: column;
-  width: 150px;
+  .v-footer {
+    margin-top: 12rem;
+  }
+
+  .footer__text {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+.v-card{
+  min-width: 100vw;
 }
 
 h3 {
-  color: rgb(255,213,154);
-  margin: 1.7rem;
+  margin-bottom: 1rem;
 }
 
-ul li {
-  padding-bottom: 1rem;
-   text-align: left;
+p{
+  margin-bottom: .5rem;
 }
-
 </style>

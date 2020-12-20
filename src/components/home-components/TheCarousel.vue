@@ -1,31 +1,14 @@
 <template>
 
     <v-app>
-  <!--   <v-card> -->
         <v-carousel v-model="model">
     <v-carousel-item
       v-for="(item, i) in imagenes"
       :key="i"
       :src="item.imagen"
     >
- <!--      <v-sheet
-        :color="color"
-        height="100%"
-        tile
-      > -->
-  <!--       <v-row
-          class="fill-height"
-          align="center"
-          justify="center"
-        >
-          <div class="display-3">
-            Slide {{ i + 1 }}
-          </div>
-        </v-row> -->
-<!--       </v-sheet> -->
     </v-carousel-item>
   </v-carousel>
-  <!--   </v-card> -->
   </v-app>
 
 </template>
@@ -56,7 +39,7 @@
 
 .v-carousel {
     /* width: 400px; */
-    margin: 110px auto;
+    /* margin: 110px auto; */
 }
 
 </style>
