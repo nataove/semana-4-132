@@ -15,6 +15,7 @@ exports.login = async (req, res, next) => {
                     auth: true,
                     tokenReturn: token
                 });
+                
             }
             else {
                 res.status(401).send({
@@ -50,9 +51,7 @@ exports.list = async (req, res, next) => {
 
 exports.add = async (req, res, next) => {
     try {
-        let datos = req.body;
-        datos.password='$2y$08$FTP/jKGNASwJf0ero7SBe.kQmUsOSjWYupPZ6/lS6en6RcithXFKO';
-        const usuario = await db.Usuario.create(datos);
+        const usuario = await db.Usuario.create(req.body);
         res.status(200).json(usuario);
     } catch (error) {
         res.status(500).send({
