@@ -9,13 +9,12 @@ exports.login = async (req, res, next) => {
         const user = await db.Usuario.findOne({ where: { email: req.body.email } });
         if (user) {
             const passwordIsValid = bcrypt.compareSync(req.body.password, user.password);
-            if (passwordIsValid) {
-                const token = await tokenService.encode(user.id, user.rol);
+            if (passwordIsValid && user.estado==1) {
+                const token = await tokenService.encode(user.id, user.rol, user.nombre);
                 res.status(200).send({
                     auth: true,
                     tokenReturn: token
                 });
-                
             }
             else {
                 res.status(401).send({
@@ -51,7 +50,9 @@ exports.list = async (req, res, next) => {
 
 exports.add = async (req, res, next) => {
     try {
-        const usuario = await db.Usuario.create(req.body);
+        let datos = req.body;
+        datos.password='$2y$08$FTP/jKGNASwJf0ero7SBe.kQmUsOSjWYupPZ6/lS6en6RcithXFKO';
+        const usuario = await db.Usuario.create(datos);
         res.status(200).json(usuario);
     } catch (error) {
         res.status(500).send({
@@ -59,7 +60,6 @@ exports.add = async (req, res, next) => {
         })
         next(error);
     }
-    console.log(req.body)
 }
 
 exports.update = async (req, res, next) => {
