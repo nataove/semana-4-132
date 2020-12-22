@@ -84,7 +84,7 @@ const routes = [
     }
   },
   {
-    path: '/servicio/1',
+    path: '/servicio/2',
     name: 'aerogenerador',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
@@ -92,12 +92,20 @@ const routes = [
     component: () => import(/* webpackChunkName: "aerogenerador" */ '../views/servicios/AeroGenerador.vue'),
   },
   {
-    path: '/servicio/2',
+    path: '/servicio/1',
     name: 'panelsolar',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "panelsolar" */ '../views/servicios/PanelSolar.vue'),
+  },
+  {
+    path: '/servicio/3',
+    name: 'plantabiogas',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "plantabiogas" */ '../views/servicios/PlantaBiogas.vue'),
   }
 ]
 

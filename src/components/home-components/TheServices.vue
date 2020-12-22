@@ -12,6 +12,7 @@
 
               <v-card
     class="mx-auto"
+    v-for="(service, i) in services" :key="i"
   >
     <v-img
       src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
@@ -19,19 +20,19 @@
     ></v-img>
 
     <v-card-title>
-      Top western road trips
+      {{ service.nombre.toUpperCase() }}
     </v-card-title>
     
         <v-card-text>
-          I'm a thing. But, like most politicians, he promised more than he could deliver. You won't have time for sleeping, soldier, not with all the bed making you'll be doing. Then we'll go with 
+          {{ service.descripcion }}
         </v-card-text>
         <v-card-actions>
       <v-btn
         color="orange lighten-2"
         text
-        to="servicio/1"
+        :to="'servicio/' + (i + 1) "
       >
-        Explora
+        Conocer más...
       </v-btn>
 
       <v-spacer></v-spacer>
@@ -40,83 +41,38 @@
     </v-card-actions>
 
   </v-card>
-
-
-          <v-card
-    class="mx-auto"
-  >
-    <v-img
-      src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
-      height="200px"
-    ></v-img>
-
-    <v-card-title>
-      Top western road trips
-    </v-card-title>
-    
-        <v-card-text>
-          I'm a thing. But, like most politicians, he promised more than he could deliver. You won't have time for sleeping, soldier, not with all the bed making you'll be doing. Then we'll go with 
-        </v-card-text>
-        <v-card-actions>
-      <v-btn
-        color="orange lighten-2"
-        text
-        to="servicio/2"
-      >
-        Explorar
-      </v-btn>
-
-      <v-spacer></v-spacer>
-
-
-    </v-card-actions>
-
-  </v-card>
-
-           <v-card
-    class="mx-auto"
-  >
-    <v-img
-      src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
-      height="200px"
-    ></v-img>
-
-    <v-card-title>
-      Top western road trips
-    </v-card-title>
-    
-        <v-card-text>
-          I'm a thing. But, like most politicians, he promised more than he could deliver. You won't have time for sleeping, soldier, not with all the bed making you'll be doing. Then we'll go with 
-        </v-card-text>
-        <v-card-actions>
-      <v-btn
-        color="orange lighten-2"
-        text
-      >
-        Explore
-      </v-btn>
-
-      <v-spacer></v-spacer>
-
-
-    </v-card-actions>
-
-  </v-card>
-
     </div>
-
-     
     </section>
 
 </template>
 
 <script>
+
+  import axios from 'axios';
+
   export default {
     name: 'TheServices',
     props:{},
     data: () => ({
-      
+      services: []
     }),
+      methods: {
+    listServices() {
+      axios
+        .get("http://localhost:3000/api/articulo/list-all")
+        .then((response) => {
+
+          this.services = response.data;
+          console.log(this.services);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+  },
+    mounted(){
+        this.listServices();
+    },
   }
 </script>
 

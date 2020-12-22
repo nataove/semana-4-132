@@ -6,50 +6,51 @@
   <section class="section servicio">
 
     <div class="section-title">
-      <h1>AEROGENERADOR</h1>
+      <h1>Planta Biogas</h1>
       <div class="underline"></div>
     </div>
 
     <div class="section-center">
 
       <div class="service-info">
-      <p>
-        La energía del generador, de 690 voltios, pasa por un transformador para adaptarla al voltaje necesario de la red de distribución, generalmente de entre 20 y 132 kilovoltios. Las redes regionales de distribución eléctrica reparten la energía por todo el país, tanto para hogares como negocios.  Cuando el viento cambia de dirección, los motores giran la góndola y las palas se mueven con ella para ponerse de cara al viento. Las aspas también se inclinan o se ponen en ángulo para asegurar que se extrae la cantidad óptima de energía a partir del viento.
-      </p>
+
+      <p>{{serviceInfo }}</p>
 
       <div class="service__gallery">
         <div class="img__container">
-          <img :src="serviceInfo[0].image" alt="">
+          <img :src="serviceImages[0].image" alt="">
         </div>
          <div class="img__container">
-          <img :src="serviceInfo[1].image" alt="">
+          <img :src="serviceImages[1].image" alt="">
         </div>
          <div class="img__container">
-          <img :src="serviceInfo[2].image" alt="">
+          <img :src="serviceImages[2].image" alt="">
         </div>
        <!--   <div class="img__container">
           <img src="" alt="">
         </div> -->
       </div>
+
        </div>
     </div>
 
-  <div class="servicio__beneficios">
+     <div class="servicio__beneficios">
         <h3>Beneficios</h3>
         <ul>
             <li>
- <strong>Es completamente segura: </strong> <p>  No pueden haber accidentes con este tipo de energía como sucede con la energía nuclear u otro tipo de energía. Además, no genera residuos tóxicos.</p>
+ <strong>Renovable:</strong> 
+ <p> 
+     Podemos considerar al biogás como una energía renovable ya que se aprovechan los residuos que se generan en el día a día de cualquier actividad, tanto en nuestra vida doméstica, como en las granjas de animales, como en la agricultura.
+ </p>
             </li>
             <li>
-<strong>Tiene una gran capacidad: </strong> <p>. La energía eólica no supera todavía el 10% de la consumida en España, pero solo con este tipo de energía se podría llegar a suministrar a toda la población mundial debido a que es inabarcable. </p> 
+<strong>Aprovechamiento de residuos:</strong> <p> Debemos tener en cuenta que se aprovechan lo que hasta hace poco tiempo se consideraban desechos, y se les da un valor económico como materia prima para generación de un bien económicamente rentable como es el biogás.</p> 
             </li>
             <li>
-               <strong>Su transporte es ecológico: </strong> <p>Otro tipo de energías requieren de vehículos o grandes tuberías para ser transportadas. No es el caso de la energía eólica que se vierte en la red eléctrica de una forma responsable con el entorno.</p>
+               <strong>Sustituto de gasolina y diésel:</strong> <p> El biogás podría conseguir sustituir a los combustibles derivados del petróleo que, además de tener un precio muy elevado, perjudican notablemente la naturaleza. También puede sustituir al GLP que es el gas de cocina, también muy contaminante..</p>
             </li>
         </ul>
     </div>
-
-
   </section>
 
   <the-footer/>
@@ -63,22 +64,23 @@ import TheHeader from '@/components/home-components/TheHeader'
 import TheFooter from '@/components/home-components/TheFooter'
 
 export default {
-  name: 'AeroGenerador',
+  name: 'PlantaBiogas',
   components: {
     TheHeader,
     TheFooter
   },
   data() {
     return {
-      serviceInfo: [
+     serviceInfo: `Las plantas que producen el BIOGAS son instalaciones diseñadas para recibir los residuos y restos orgánicos para un tratamiento que desemboque en la producción de energía y enmiendas orgánicas.El gas forma parte de las energías renovables y, entre sus ventajas, destacan el beneficio económico en la venta y ahorro de energía eléctrica y calor, la disminución de residuos orgánicos potencialmente contaminantes, la reducción de malos olores o de los peligros que suponen las aguas orgánicas o las industriales respecto a la contaminación de los acuíferos.`,
+      serviceImages: [
         {
-          image: require('@/assets/aerogeneradores/aerogenerador1.jpg')
+          image: require('@/assets/planta-biogas/biogas1.jpg')
         },
         {
-          image: require('@/assets/aerogeneradores/aerogenerador2.jpg')
+          image: require('@/assets/planta-biogas/biogas2.jpg')
         },
         {
-          image: require('@/assets/aerogeneradores/aerogenerador3.jpg')
+          image: require('@/assets/planta-biogas/biogas3.jpg')
         }
       ]
     }
@@ -88,7 +90,7 @@ export default {
 
 <style scoped>
 
-   .servicio {
+    .servicio {
       margin-top: 6rem
     }
 
@@ -147,7 +149,6 @@ export default {
         margin: 0 auto;
         color: var(--main-color-oscuro4);
         width: 60vw;
-        margin-bottom: 2rem;
     }
 
     .servicio__beneficios h3::after {
@@ -210,72 +211,5 @@ export default {
       }
 
     }
-
-
-
-/* 
-    .servicio {
-      margin-top: 6rem
-    }
-
-    .section-center {
-      background-color: var(--main-white2);
-    }
-
-  .service-info {
-      padding-top: 3rem;
-        padding-bottom: 3rem;
-  }
-
-    .service-info p {
-      line-height: 2rem;
-      width: 80%;
-      text-align: center;
-    }
-
-
-    .service__gallery {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      grid-template-rows: auto auto;
-      gap: .5rem;
-    }
-
-    .img__container:nth-of-type(1) {
-      background-color: red;
-      grid-row: 1 / -1;
-
-    }
-
-    .img__container:nth-of-type(2) {
-      background-color:green;
-      grid-column: 2 / -1;
-    }
-
-
-.img__container:nth-of-type(3) {
-      background-color: black;
-      grid-row: 2 / -1;
-      grid-column: 2 / -1;
-    }
-
-    img {
-      height: 100%;
-    }
-
-
-    @media screen and (min-width: 800px) {
-      
-      .service-info {
-        width: 85vw;
-        max-width: 1150px;
-        margin: 0 auto ;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 3rem;
-      
-      }
-
-    } */
 
 </style>

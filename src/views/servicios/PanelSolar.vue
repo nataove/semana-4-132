@@ -35,7 +35,7 @@
     </div>
 
      <div class="servicio__beneficios">
-        <h3>Beneficios Energia Solar</h3>
+        <h3>Beneficios</h3>
         <ul>
             <li>
  <strong>Ahorro económico:</strong> <p> La producción de energía a partir del sol supone un ahorro económico importante, ya que es una fuente inagotable de energía que no está sujeta a las fluctuaciones del mercado. Aunque requiere un desembolso inicial importante, este se ve compensado por una rápida amortización de la inversión.</p>
@@ -87,7 +87,130 @@ export default {
 
 <style scoped>
 
-    .servicio {
+ .servicio {
+      margin-top: 6rem
+    }
+
+    .section-center {
+      background-color: var(--main-white2);
+    }
+
+  .service-info {
+      padding-top: 3rem;
+        padding-bottom: 3rem;
+  }
+
+    .service-info p {
+      line-height: 2rem;
+      width: 80%;
+      text-align: center;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+
+    .service__gallery {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: auto auto;
+      gap: .5rem;
+    }
+
+    .img__container:nth-of-type(1) {
+      grid-row: 1 / -1;
+
+    }
+
+    .img__container:nth-of-type(2) {
+      grid-column: 2 / -1;
+    }
+
+
+.img__container:nth-of-type(3) {
+      grid-row: 2 / -1;
+      grid-column: 2 / -1;
+    }
+
+    img {
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .servicio__beneficios {
+        margin-top: 5rem;
+    }
+
+    .servicio__beneficios h3 {
+        font-weight: bold;
+        font-size: 2.5rem;
+        margin: 0 auto;
+        color: var(--main-color-oscuro4);
+        width: 60vw;
+        margin-bottom: 2rem;
+    }
+
+    .servicio__beneficios h3::after {
+        content: '';
+        width: 100px;
+        height: 5px;
+        display: block;
+        background: var(--main-color4);
+    }
+
+    strong {
+        font-size: 1.6rem;
+    }
+
+     .servicio__beneficios ul {
+            background-color: rgb(239,222,205);
+            padding: 2rem 3rem;
+        margin-top: 3rem;
+        margin-right: auto;
+        margin-left: auto;
+        width: 60vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+
+       .servicio__beneficios li {
+           margin-top: 3rem;
+          margin-bottom: 4rem;
+    }
+
+      .servicio__beneficios p {
+          margin-top: 3rem;
+          line-height: 2rem;
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 90%;
+          padding: 1rem 2rem;
+         background:  var(--main-white3);
+         font-size: 1.2rem;
+    }
+
+    strong {
+        text-transform: uppercase;
+
+    }
+
+
+    @media screen and (min-width: 800px) {
+      
+      .service-info {
+        width: 85vw;
+        max-width: 1150px;
+        margin: 0 auto ;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+      
+      }
+
+    }
+
+/*     .servicio {
       margin-top: 6rem
     }
 
@@ -185,6 +308,6 @@ export default {
       
       }
 
-    }
+    } */
 
 </style>
