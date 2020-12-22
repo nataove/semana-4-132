@@ -14,10 +14,11 @@ const  checkToken = async(token) => {
         estado: 1
     }})
     if(usuario){
-        const token = encode(usuario.id, usuario.rol);
+        const token = encode(usuario.id, usuario.rol, usuario.nombre);
         return{
             token, 
-            rol: usuario.rol
+            rol: usuario.rol,
+            nombre: usuario.nombre,
         }
     }
     else{
@@ -27,10 +28,11 @@ const  checkToken = async(token) => {
 
 module.exports = {
 
-    encode: async(id, rol) => {
+    encode: async(id, rol, nombre) => {
         const token = jwt.sign({
             id: id,
             rol: rol,
+            nombre: nombre,
         }, "config.secret", {
             expiresIn: 86400,
         });

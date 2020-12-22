@@ -9,8 +9,8 @@ exports.login = async (req, res, next) => {
         const user = await db.Usuario.findOne({ where: { email: req.body.email } });
         if (user) {
             const passwordIsValid = bcrypt.compareSync(req.body.password, user.password);
-            if (passwordIsValid) {
-                const token = await tokenService.encode(user.id, user.rol);
+            if (passwordIsValid && user.estado==1) {
+                const token = await tokenService.encode(user.id, user.rol, user.nombre);
                 res.status(200).send({
                     auth: true,
                     tokenReturn: token
@@ -59,7 +59,6 @@ exports.add = async (req, res, next) => {
         })
         next(error);
     }
-    console.log(req.body)
 }
 
 exports.update = async (req, res, next) => {
