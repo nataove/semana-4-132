@@ -8,17 +8,9 @@
 
                 <article class="info-main">
                 <p>
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut, quam.
-
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum aliquam voluptatum quam dolore a sunt distinctio accusamus voluptas? Asperiores non provident deleniti, in repellat iste quis? Voluptatem corporis architecto officia ipsa molestiae nam commodi 
+                    Bienvenidos a BIOENERGY, somos una empresa dedicada al diseño y contrucción de soluciones eficientes basadas en el ambito de las energias renovables. Si tu fabrica o empresa necesita reducir costes sin ver afectado el rendimiento en la producción de sus productos es ahí cuando las energias renovables aparacen, cada vez son más las empresas que optan por respetar el medio ambiente y se dan cuenta que los grandes beneficios que trae unirse a esta ola de energía verde.  
                 </p>
                 </article>
-                 <article class="info-second">
-                
-                     
-
-                </article>
-
             </div>
 
             <div class="about-us__reasons">
@@ -26,7 +18,7 @@
             <article class="about-us__reason">
               <!--   <h4>razon</h4> -->
                 <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora ut hic vitae magni magnam error neque dolores odit, quis iste impedit, earum blanditiis cumque ea incidunt repellat animi? Fugit, fuga?
+                    Transformamos el suministro energético impulsando la transición energética y ecológica
                 </p>
                 <span class="number">
                     1
@@ -36,7 +28,7 @@
             <article class="about-us__reason">
               <!--   <h4>razon</h4> -->
                 <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora ut hic vitae magni magnam error neque dolores odit, quis iste impedit, earum blanditiis cumque ea incidunt repellat animi? Fugit, fuga?
+                    Reparación y suministro de pequeños y grandes componentes, logística de repuestos y servicio de broker de aerogeneradores.
                 </p>
                 <span class="number">
                     2
@@ -46,7 +38,7 @@
             <article class="about-us__reason">
                <!--  <h4>razon</h4> -->
                 <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora ut hic vitae magni magnam error neque dolores odit, quis iste impedit, earum blanditiis cumque ea incidunt repellat animi? Fugit, fuga?
+                    Auditorías energéticas de acuerdo a RD 56/2016. Mejora de la eficiencia energética y uso racional de la energía orientado a cualquier tipo de actividad.
                 </p>
                 <span class="number">
                     3
@@ -95,7 +87,7 @@
     background: linear-gradient( var(--main-color2), rgba(0,0,0, 0.7)), url('../../assets/naturaleza.jpg');
     background-color: linear-gradient();
     padding: 6rem 4rem;
-    line-height: 1.8rem;
+    line-height: 1.9rem;
     color: white;
    /*  font-weight: bold; */
     font-size: 1.3rem;
@@ -104,6 +96,9 @@
    -webkit-box-shadow: 0px 3px 11px 0px rgba(0,0,0,0.75);
 -moz-box-shadow: 0px 3px 11px 0px rgba(0,0,0,0.75);
 box-shadow: 0px 3px 11px 0px rgba(0,0,0,0.75);
+    display: flex;
+    align-items: center;
+    text-align: center;
 }
 
 .about-us__reason{
@@ -125,7 +120,8 @@ box-shadow: 0px 3px 11px 0px rgba(0,0,0,0.75);
     margin-bottom: 0;
     margin-top: 1rem;
     line-height: 1.4rem;
-  /*   background: red; */
+    font-size: 1.3rem;
+    text-align: center;
 }
 
 /* .about-us__reason h4  */

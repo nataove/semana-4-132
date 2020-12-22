@@ -27,7 +27,7 @@
         </v-card-text>
         <v-card-actions>
       <v-btn
-        color="orange lighten-2"
+        color="#458787"
         text
         :to="'servicio/' + (i + 1) "
       >
