@@ -1,29 +1,29 @@
 <template>
   <v-data-table
     :headers="headers"
-    :items="categorias"
+    :items="ventas"
     sort-by="ID"
     class="elevation-1"
-    :loading="tablaCargada"
-    loading-text="Cargando... Por favor, espera"
     :footer-props="{
       showFirstLastPage: true,
-      'items-per-page-text': 'Categorías por página',
+      'items-per-page-text': 'Ventas por página',
       itemsPerPageOptions: [5, 10, 15, 20],
     }"
   >
-    <template slot="no-data">
-      <v-alert :value="true" color="#72A4A4"> No existen datos. </v-alert>
-    </template>
+  <template slot="no-data">
+   <v-alert :value="true" color="#72A4A4">
+     No existen datos.
+   </v-alert>
+ </template>
     <template v-slot:top>
       <v-toolbar flat>
-        <v-toolbar-title>CATEGORÍAS</v-toolbar-title>
+        <v-toolbar-title>VENTAS</v-toolbar-title>
         <v-divider class="mx-4" inset vertical></v-divider>
         <v-spacer></v-spacer>
         <v-dialog v-model="dialog" max-width="500px">
           <template v-slot:activator="{ on, attrs }">
             <v-btn color="primary" dark class="mb-2" v-bind="attrs" v-on="on">
-              Agregar Categoría
+              Agregar Ventas
             </v-btn>
           </template>
           <v-card>
@@ -36,13 +36,11 @@
                 <v-row>
                   <v-col cols="12">
                     <v-text-field
-                      v-model="editedItem.nombre"
                       label="Nombre"
                     ></v-text-field>
                   </v-col>
                   <v-col cols="12">
                     <v-textarea
-                      v-model="editedItem.descripcion"
                       label="Descripción"
                       auto-grow
                       no-resize
@@ -89,7 +87,6 @@
         v-model="item.estado"
         readonly
         color="#72A4A4"
-        @click="seleccionarEstado(item)"
         @change="item.estado"
       ></v-switch>
     </template>
@@ -102,7 +99,7 @@
 </template>
 
 <script>
-import axios from "axios";
+
 
 export default {
   data: () => ({
@@ -117,12 +114,10 @@ export default {
       },
       { text: "Nombre", value: "nombre" },
       { text: "Descripción", value: "descripcion" },
-      { text: "Estado", value: "estado" },
       { text: "", value: "acciones", sortable: false },
     ],
-    categorias: [],
+    ventas: [],
     editedIndex: -1,
-    tablaCargada: true,
     editedItem: {
       nombre: "",
       descripcion: "",
@@ -136,7 +131,7 @@ export default {
   }),
   computed: {
     formTitle() {
-      return this.editedIndex === -1 ? "Agregar Categoría" : "Editar Categoría";
+      return this.editedIndex === -1 ? "Agregar Venta" : "Editar Venta";
     },
   },
   watch: {
@@ -148,24 +143,9 @@ export default {
     },
   },
   created() {
-    this.listar();
+   
   },
   methods: {
-    listar() {
-      axios
-        .get("http://localhost:3000/api/categoria/list", {
-          headers: {
-            token: this.$store.state.token,
-          },
-        })
-        .then((response) => {
-          this.categorias = response.data;
-          this.tablaCargada = false;
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    },
 
     editarCategoria(item) {
       this.editedIndex = item.id;
@@ -178,48 +158,6 @@ export default {
       this.dialogDelete = true;
     },
     cambiarEstado() {
-      if (this.editedItem.estado) {
-        //put
-        axios
-          .put(
-            "http://localhost:3000/api/categoria/deactivate",
-            {
-              id: this.editedItem.id,
-            },
-            {
-              headers: {
-                token: this.$store.state.token,
-              },
-            }
-          )
-          .then((response) => {
-            this.listar();
-            return response;
-          })
-          .catch((error) => {
-            return error;
-          });
-      } else {
-        axios
-          .put(
-            "http://localhost:3000/api/categoria/activate",
-            {
-              id: this.editedItem.id,
-            },
-            {
-              headers: {
-                token: this.$store.state.token,
-              },
-            }
-          )
-          .then((response) => {
-            this.listar();
-            return response;
-          })
-          .catch((error) => {
-            return error;
-          });
-      }
       this.listar();
       this.cerrarDialogoEstado();
     },
@@ -238,51 +176,7 @@ export default {
       });
     },
     guardar() {
-      if (this.editedIndex > -1) {
-        //put
-        axios
-          .put(
-            "http://localhost:3000/api/categoria/update",
-            {
-              id: this.editedItem.id,
-              nombre: this.editedItem.nombre,
-              descripcion: this.editedItem.descripcion,
-            },
-            {
-              headers: {
-                token: this.$store.state.token,
-              },
-            }
-          )
-          .then((response) => {
-            this.listar();
-            return response;
-          })
-          .catch((error) => {
-            return error;
-          });
-      } else {
-        axios
-          .post(
-            "http://localhost:3000/api/categoria/add",
-            {
-              nombre: this.editedItem.nombre,
-              descripcion: this.editedItem.descripcion,
-            },
-            {
-              headers: {
-                token: this.$store.state.token,
-              },
-            }
-          )
-          .then((response) => {
-            this.listar();
-            return response;
-          })
-          .catch((error) => {
-            return error;
-          });
-      }
+   
       this.cerrar();
     },
   },

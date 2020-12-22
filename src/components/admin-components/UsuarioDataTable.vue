@@ -12,6 +12,11 @@
       itemsPerPageOptions: [5, 10, 15, 20],
     }"
   >
+  <template slot="no-data">
+   <v-alert :value="true" color="#72A4A4">
+     No existen datos.
+   </v-alert>
+ </template>
     <template v-slot:top>
       <v-toolbar flat>
         <v-toolbar-title>USUARIOS</v-toolbar-title>
@@ -159,19 +164,20 @@ export default {
     this.listar();
   },
   methods: {
-    listar() {
-      axios.get("http://localhost:3000/api/usuario/list" ,{
+     listar() {
+      axios
+        .get("http://localhost:3000/api/usuario/list", {
           headers: {
             token: this.$store.state.token,
           },
         })
-          .then((response) => {
-            this.tablaCargada = false;
-            this.usuarios = response.data;
-          })
-          .catch((error) => {
-            console.log(error);
-          });
+        .then((response) => {
+          this.usuarios = response.data;
+          this.tablaCargada = false;
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     },
 
     editarUsuario(item) {
@@ -185,7 +191,6 @@ export default {
       this.dialogoEstado = true;
     },
     cambiarEstado() {
-      console.log("dd " + this.editedItem.estado);
       if (this.editedItem.estado) {
         //put
         axios
@@ -242,7 +247,7 @@ export default {
       this.dialogoEstado = false;
       this.listar();
     },
-    guardar() {
+     guardar() {
       if (this.editedIndex > -1) {
         //put
         axios
@@ -252,7 +257,7 @@ export default {
               id: this.editedItem.id,
               nombre: this.editedItem.nombre,
               email: this.editedItem.email,
-              rol: this.editedItem.rol,
+              rol: this.editedItem.rol
             },
             {
               headers: {
@@ -272,9 +277,10 @@ export default {
           .post(
             "http://localhost:3000/api/usuario/add",
             {
+              id: this.editedItem.id,
               nombre: this.editedItem.nombre,
               email: this.editedItem.email,
-              rol: this.editedItem.rol,
+              rol: this.editedItem.rol
             },
             {
               headers: {

@@ -69,6 +69,18 @@ const routes = [
           auth: true,
           roles: ['Administrador']
         }
+      },
+      {
+        path: '/admin/ventas',
+        name: 'ventas',
+        // route level code-splitting
+        // this generates a separate chunk (about.[hash].js) for this route
+        // which is lazy-loaded when the route is visited.
+        component: () => import(/* webpackChunkName: "ventas" */ '../views/admin/Ventas.vue'),
+        meta: {
+          auth: true,
+          roles: ['Administrador', 'Vendedor']
+        }
       }
     ]
   },
@@ -114,32 +126,34 @@ const router = new VueRouter({
   routes
 })
 
-router.beforeEach((to, from, next) =>{
-  if(to.matched.some(record => record.meta.public)){
+router.beforeEach((to, from, next) => {
+  if (to.matched.some(record => record.meta.public)) {
     next();
   }
-  else  if(to.matched.some(record => record.meta.auth)){
-    //if(store.state.usuario && state.usuario.rol==="Administrador"){
-      if(store.state.usuario){
-        console.log(store.state.usuario)
-        if (to.meta.roles.includes(store.state.usuario.rol)) {
-          next();
-        }
-        else{
-          next({
-            name: 'Admin'
-          })
-        }
+  else if (to.matched.some(record => record.meta.auth)) {
+    if (store.state.token != null) {
+      if (to.meta.roles.includes(store.state.usuario.rol)) {
+        next();
+      }
+      else {
+        next()
+      }
     }
-    else{
-      next({
-        name: 'Login'
-      });
+    else {
+      next()
     }
   }
-  else{
-    next();
+  else {
+    next({
+      name: 'Login'
+    });
   }
 })
+
+router.afterEach((to) => {
+  Vue.nextTick(() => {
+    document.title = to.pageTitle || 'Portafolio de Servicios';
+  });
+});
 
 export default router

@@ -12,6 +12,9 @@
       itemsPerPageOptions: [5, 10, 15, 20],
     }"
   >
+    <template slot="no-data">
+      <v-alert :value="true" color="#72A4A4"> No existen datos. </v-alert>
+    </template>
     <template v-slot:top>
       <v-toolbar flat>
         <v-toolbar-title>ARTÍCULOS</v-toolbar-title>
@@ -179,23 +182,24 @@ export default {
   },
   methods: {
     listar() {
-      axios.get("http://localhost:3000/api/articulo/list",
-        {
+      axios
+        .get("http://localhost:3000/api/articulo/list", {
           headers: {
             token: this.$store.state.token,
           },
         })
-          .then((response) => {
-            this.tablaCargada = false;
-            this.articulos = response.data;
-          })
-          .catch((error) => {
-            console.log(error);
-          });
+        .then((response) => {
+          this.tablaCargada = false;
+          this.articulos = response.data;
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     },
 
     listarCategoria() {
-      axios.get("http://localhost:3000/api/categoria/list", {
+      axios
+        .get("http://localhost:3000/api/categoria/list", {
           headers: {
             token: this.$store.state.token,
           },
