@@ -152,7 +152,7 @@ router.beforeEach((to, from, next) => {
 
 router.afterEach((to) => {
   Vue.nextTick(() => {
-    document.title = to.pageTitle || 'Portafolio de Servicios';
+    document.title = to.pageTitle || 'BioEnergy';
   });
 });
 

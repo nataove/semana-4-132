@@ -14,8 +14,7 @@
     class="mx-auto"
     v-for="(service, i) in services" :key="i"
   >
-    <v-img
-      src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
+    <v-img :src="require(`../../assets/${service.imagen}`)"
       height="200px"
     ></v-img>
 

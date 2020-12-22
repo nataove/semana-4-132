@@ -112,6 +112,7 @@
 
 <script>
 import axios from "axios";
+import bcrypt from 'bcryptjs';
 
 export default {
   data: () => ({
@@ -273,6 +274,8 @@ export default {
             return error;
           });
       } else {
+         const salt = bcrypt.genSaltSync(10)
+        const pass = bcrypt.hashSync((this.editedItem.nombre).replace(/ /g, ""), salt); 
         axios
           .post(
             "http://localhost:3000/api/usuario/add",
@@ -280,7 +283,8 @@ export default {
               id: this.editedItem.id,
               nombre: this.editedItem.nombre,
               email: this.editedItem.email,
-              rol: this.editedItem.rol
+              rol: this.editedItem.rol,
+               password: pass,
             },
             {
               headers: {

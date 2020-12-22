@@ -3,7 +3,11 @@
     <nav class="menu">
       <div class="menu__center">
         <div class="menu__header">
-          <img src="@/assets/logo.png" width="50px" class="menu__logo" alt="logo" />
+          <img src="@/assets/logoEmpresa.png" width="50px" class="menu__logo" alt="logo" />
+ 
+          <h1 class="display-2 font-weight-bold mb-3 tituloEmpresa">
+          BioEnergy
+        </h1>
           <button class="menu__btn" id="menu-btn" @click="showSidemenu">
             <span></span>
             <span></span>
