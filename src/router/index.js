@@ -102,6 +102,9 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "aerogenerador" */ '../views/servicios/AeroGenerador.vue'),
+    meta: {
+      public: true
+    }
   },
   {
     path: '/servicio/1',
@@ -110,6 +113,9 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "panelsolar" */ '../views/servicios/PanelSolar.vue'),
+    meta: {
+      public: true
+    }
   },
   {
     path: '/servicio/3',
@@ -118,6 +124,9 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "plantabiogas" */ '../views/servicios/PlantaBiogas.vue'),
+    meta: {
+      public: true
+    }
   }
 ]
 
