@@ -5,6 +5,7 @@ const auth = require('../../middlewares/auth');
 
 const router = routerx();
 
+router.get('/list-all', articuloController.list);
 router.get('/list', auth.verifyAlmacenero, articuloController.list);
 router.post('/add', auth.verifyAlmacenero, articuloController.add);
 router.put('/update', auth.verifyAlmacenero, articuloController.update);
